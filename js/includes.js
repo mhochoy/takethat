@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerTarget = document.getElementById("site-header");
 
   if (headerTarget) {
-
-    fetch("/html/takethat/includes/header.html")
+    fetch("./includes/header.html")
 
       .then(res => res.text())
 
