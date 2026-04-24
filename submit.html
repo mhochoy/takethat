@@ -23,7 +23,26 @@
                         <textarea for="message" name="message" rows="4" cols="" id="message" required></textarea>
                     </label>
 
-                    <div id="category"></div>
+                    <div id="extras">
+                        <label for="category">
+                            Category
+                            <select>
+                                <option>General</option>
+                                <option>Food</option>
+                                <option>Gaming</option>
+                            </select>
+                        </label>
+
+                        <label for="allow_reactions">
+                            Allow Reactions
+                            <input type="checkbox">
+                        </label>
+
+                        <label>
+                            Self-Destruct
+                            <input type="radio">
+                        </label>
+                    </div>
                     
                     <div class="button">
                         <button type="submit" onsubmit="">Send</button>
