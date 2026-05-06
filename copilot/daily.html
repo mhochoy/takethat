@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Catchphrase of the Day</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button class="theme-switcher" onclick="switchTheme()">Switch Theme</button>
+
+<nav>
+  <a href="index.html">Generator</a>
+  <a href="daily.html">Catchphrase of the Day</a>
+</nav>
+
+<div class="container">
+  <h1>Catchphrase of the Day</h1>
+  <div id="dailyPhrase" class="phrase-box"></div>
+</div>
+
+<script>
+const dailyPhrases = [
+  "Today is the perfect day to begin again",
+  "Let your ambition set the rhythm",
+  "Small steps shape legendary journeys",
+  "Your potential is louder than your doubts",
+  "Every sunrise brings a new spark",
+  "Momentum begins with a single brave moment",
+  "Let purpose guide your stride",
+  "You are one idea away from brilliance",
+  "Progress is a masterpiece in motion",
+  "Own the day before it owns you"
+];
+
+function typeText(element, text) {
+  element.classList.remove("typing");
+  element.textContent = "";
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 35);
+    } else {
+      element.classList.add("typing");
+    }
+  }
+  type();
+}
+
+const today = new Date();
+const seed = today.getFullYear() + today.getMonth() + today.getDate();
+const index = seed % dailyPhrases.length;
+
+typeText(document.getElementById("dailyPhrase"), dailyPhrases[index]);
+
+/* Theme switcher */
+let themeIndex = 0;
+const themes = [
+  { bg1: "#e8eef7", bg2: "#cfd9e8", accent: "#5b8bd4", hover: "#3f6fb8" },
+  { bg1: "#f3e7d3", bg2: "#e8d2b8", accent: "#c08a4d", hover: "#a06f38" },
+  { bg1: "#e8e0f0", bg2: "#d4c2e3", accent: "#9b6fc4", hover: "#7f54a8" }
+];
+
+function switchTheme() {
+  themeIndex = (themeIndex + 1) % themes.length;
+  const t = themes[themeIndex];
+
+  document.documentElement.style.setProperty("--bg1", t.bg1);
+  document.documentElement.style.setProperty("--bg2", t.bg2);
+  document.documentElement.style.setProperty("--accent", t.accent);
+  document.documentElement.style.setProperty("--accent-hover", t.hover);
+}
+</script>
+
+</body>
+</html>

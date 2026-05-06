@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Catchphrase Generator</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<button class="theme-switcher" onclick="switchTheme()">Switch Theme</button>
+
+<nav>
+  <a href="index.html">Generator</a>
+  <a href="daily.html">Catchphrase of the Day</a>
+</nav>
+
+<!-- HERO SECTION -->
+<header class="hero">
+  <h1 class="hero-title">Spark Your Creativity</h1>
+  <p class="hero-subtitle">Generate bold, inspiring catchphrases with a single click</p>
+</header>
+
+<div class="container">
+
+  <!-- MAIN GENERATOR -->
+  <section class="generator-section">
+    <h2>Random Catchphrase Generator</h2>
+    <button onclick="generatePhrase()">Generate Catchphrase</button>
+    <div id="phrase" class="phrase-box"></div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="info-section">
+    <h2>What’s a Catchphrase?</h2>
+    <p>
+      A catchphrase is a short, memorable line that captures an idea, a feeling, or a spark of motivation.
+      They’re used in branding, storytelling, speeches, and anywhere you want words to *stick*.
+    </p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <h2>How This Generator Works</h2>
+    <ul>
+      <li>We blend creativity with structure to produce punchy, memorable lines</li>
+      <li>Each phrase is crafted to inspire action or spark imagination</li>
+      <li>Click the button to instantly generate a new idea</li>
+      <li>Switch themes to match your creative mood</li>
+    </ul>
+  </section>
+
+  <!-- FEATURED EXAMPLES -->
+  <section class="examples-section">
+    <h2>Featured Catchphrases</h2>
+    <div class="examples-grid">
+      <div class="example-card">“Bold ideas begin with brave minds”</div>
+      <div class="example-card">“Turn sparks into stories worth telling”</div>
+      <div class="example-card">“Let curiosity lead the way forward”</div>
+      <div class="example-card">“Your next breakthrough starts here”</div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>Created with creativity by Computer & Copilot</p>
+</footer>
+
+<script>
+/* Generator phrases */
+const generatorPhrases = [
+  "Ideas ignite when curiosity leads the way",
+  "Push the boundary, then redraw it",
+  "Catch lightning, bottle brilliance",
+  "Let your thoughts wander into greatness",
+  "Innovation starts with a spark, ends with a roar",
+  "Build the unexpected, shape the unforgettable",
+  "Your next idea is already chasing you",
+  "Turn imagination into momentum",
+  "Think it, shape it, unleash it",
+  "Creativity favors the bold"
+];
+
+/* Typing effect */
+function typeText(element, text) {
+  element.classList.remove("typing");
+  element.textContent = "";
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(type, 35);
+    } else {
+      element.classList.add("typing");
+    }
+  }
+  type();
+}
+
+function generatePhrase() {
+  const random = Math.floor(Math.random() * generatorPhrases.length);
+  const phraseBox = document.getElementById("phrase");
+  typeText(phraseBox, generatorPhrases[random]);
+}
+
+/* Theme switcher */
+let themeIndex = 0;
+const themes = [
+  { bg1: "#e8eef7", bg2: "#cfd9e8", accent: "#5b8bd4", hover: "#3f6fb8" },
+  { bg1: "#f3e7d3", bg2: "#e8d2b8", accent: "#c08a4d", hover: "#a06f38" },
+  { bg1: "#e8e0f0", bg2: "#d4c2e3", accent: "#9b6fc4", hover: "#7f54a8" }
+];
+
+function switchTheme() {
+  themeIndex = (themeIndex + 1) % themes.length;
+  const t = themes[themeIndex];
+
+  document.documentElement.style.setProperty("--bg1", t.bg1);
+  document.documentElement.style.setProperty("--bg2", t.bg2);
+  document.documentElement.style.setProperty("--accent", t.accent);
+  document.documentElement.style.setProperty("--accent-hover", t.hover);
+}
+</script>
+
+</body>
+</html>
