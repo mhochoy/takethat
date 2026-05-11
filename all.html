@@ -4,8 +4,15 @@
             <title>Take That</title>
             <meta name="viewport" content="width=device-width">
             <link rel="stylesheet" href="css/styles.css">
+            <script type="importmap">
+                {
+                  "imports": {
+                    "mysql2/promise": "https://jspm.io"
+                  }
+                }
+            </script>
             <script src="js/includes.js" defer></script>
-            <script src="js/takes.js" defer></script>
+            <script type="module" src="js/takes.js" defer></script>
         </head>
         <body> <!-- Header -->
             <div id="site-header"></div>

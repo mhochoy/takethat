@@ -1,3 +1,5 @@
+import {get_takes} from "../functions/crud.js";
+
 const http = new XMLHttpRequest();
 
 http.open("GET", "http://localhost:8000/takes", false);
@@ -7,15 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const takesTarget = document.getElementById("takes");
 
     if (takesTarget) {
-        var map = JSON.parse(http.response);
-        map["takes"].forEach((take) => {
+        var map = get_takes();
+        map[0].forEach((take) => {
             takesTarget.innerHTML += 
            `<div class="take">
                 <div id="message">
-                    <p><em>${take["take"]}</em></p>
+                    <p><em>${take["id"]}</em></p>
                 </div>
                 <div id="author">
-                    <p><small>by ${take["name"]}</small></p>
+                    <p><small>by ${take["author"]}</small></p>
                 </div>
                 <div id="date">
                     <p><small>submitted on ${take["date"]}</small></p>
