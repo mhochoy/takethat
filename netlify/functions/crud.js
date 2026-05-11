@@ -1,5 +1,5 @@
 import {con} from './db.js';
-import Take from "../js/models/take.js"
+import Take from "../../js/models/take.js"
 
 
 export async function get_takes() {

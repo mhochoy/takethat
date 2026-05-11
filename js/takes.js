@@ -1,4 +1,4 @@
-import {get_takes} from "../functions/crud.js";
+import {get_takes} from "../netlify/functions/crud.js";
 
 const http = new XMLHttpRequest();
 
