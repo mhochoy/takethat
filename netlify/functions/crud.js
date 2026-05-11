@@ -63,16 +63,3 @@ export async function create_take(take) {
     return new_take;
 
 }
-
-const take = new Take("eggerton", "sometimes, cold water showers are useful", "2026-05-11 03:26:00");
-
-
-let result = await get_takes();
-let found_take = await get_take_by_id(1);
-let found_takes = await get_takes_by_date("2026-05-11 03:26:00");
-let newest_take  = await get_latest_take_id();
-let created_take = await create_take(take);
-
-
-console.log(newest_take);
-console.log(created_take);
